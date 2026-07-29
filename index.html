@@ -14,10 +14,10 @@
 <style>
   *{box-sizing:border-box}
   html,body{margin:0;padding:0}
-  body{background:#24100b;font-family:'Vazirmatn',sans-serif;-webkit-font-smoothing:antialiased}
-  ::selection{background:#ffc21a;color:#141210}
-  a{color:#2563ff;text-decoration:none}
-  a:hover{color:#1746b3}
+  body{background:#151515;font-family:'Vazirmatn',sans-serif;-webkit-font-smoothing:antialiased}
+  ::selection{background:#e8e8e8;color:#141210}
+  a{color:#dcdcdc;text-decoration:none}
+  a:hover{color:#ffffff}
   html{scrollbar-width:none;-ms-overflow-style:none}
   ::-webkit-scrollbar{width:0;height:0;display:none}
   @keyframes popIn{0%{transform:scale(.4);opacity:0}60%{transform:scale(1.05)}100%{transform:scale(1);opacity:1}}
@@ -35,7 +35,7 @@
 </style>
 </helmet>
 
-<div dir="rtl" style="position:relative;min-height:100vh;background:#24100b;color:#141210;font-family:'Vazirmatn',sans-serif;overflow-x:clip">
+<div dir="rtl" style="position:relative;min-height:100vh;background:#151515;color:#141210;font-family:'Vazirmatn',sans-serif;overflow-x:clip">
 
   <!-- ===== LOADER ===== -->
   <div style="{{ loaderStyle }}">
@@ -52,7 +52,7 @@
   </div>
 
   <!-- ===== TOP BAR ===== -->
-  <div style="position:fixed;top:0;left:0;right:0;z-index:70;padding:clamp(12px,2.4vw,20px) clamp(7px,2.2vw,28px) 0;pointer-events:none">
+  <div style="position:fixed;top:0;left:0;right:0;z-index:70;filter:grayscale(1) contrast(1.1) brightness(1.03);padding:clamp(12px,2.4vw,20px) clamp(7px,2.2vw,28px) 0;pointer-events:none">
     <div style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:5px 13px;background:rgba(7,46,35,.88);backdrop-filter:blur(14px) saturate(1.3);-webkit-backdrop-filter:blur(14px) saturate(1.3);border:4px solid #141210;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.3);pointer-events:auto">
       <button onClick="{{ toggleMenu }}" aria-label="منو" style="background:transparent;border:none;cursor:pointer;display:flex;flex-direction:column;gap:5px;align-items:center;justify-content:center;padding:6px 8px">
         <span style="{{ line1Style }}"></span>
@@ -68,7 +68,7 @@
 
   <!-- ===== BUBBLE MENU ===== -->
   <sc-if value="{{ menuOpen }}">
-  <div onClick="{{ closeMenu }}" style="position:fixed;inset:0;z-index:60;display:flex;align-items:flex-start;justify-content:center;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:clamp(84px,13vh,120px) 16px 28px;background:rgba(6,26,20,.74);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);animation:fadeIn .25s ease">
+  <div onClick="{{ closeMenu }}" style="position:fixed;inset:0;z-index:60;filter:grayscale(1) contrast(1.1) brightness(1.03);display:flex;align-items:flex-start;justify-content:center;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:clamp(84px,13vh,120px) 16px 28px;background:rgba(6,26,20,.74);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);animation:fadeIn .25s ease">
     <div style="display:flex;flex-wrap:wrap;gap:clamp(16px,3vw,32px);align-items:center;justify-content:center;width:100%;max-width:1080px">
       <div style="flex:1 1 148px;max-width:268px;display:flex;animation:popIn .5s cubic-bezier(.2,1.35,.5,1) both">
         <a onClick="{{ go1 }}" style="position:relative;overflow:hidden;width:100%;min-height:clamp(116px,18vh,200px);cursor:pointer;display:flex;align-items:center;justify-content:center;background:#f2ebdd;border:4px solid #141210;border-radius:44px;box-shadow:8px 8px 0 #141210;transform:rotate(-5deg);transition:box-shadow .2s,transform .2s" style-hover="transform:rotate(-5deg) scale(1.05);box-shadow:9px 9px 0 #2563ff">
@@ -130,7 +130,7 @@
 
   <!-- ===== TOAST ===== -->
   <sc-if value="{{ hasToast }}">
-  <div style="position:fixed;bottom:26px;left:0;right:0;z-index:170;display:flex;justify-content:center;pointer-events:none;padding:0 18px">
+  <div style="position:fixed;bottom:26px;left:0;right:0;z-index:170;filter:grayscale(1) contrast(1.1) brightness(1.03);display:flex;justify-content:center;pointer-events:none;padding:0 18px">
     <div style="background:rgba(7,46,35,.8);backdrop-filter:blur(14px) saturate(1.3);-webkit-backdrop-filter:blur(14px) saturate(1.3);border:4px solid #12b981;border-radius:14px;box-shadow:7px 7px 0 #12b981;padding:14px 24px;animation:toastIn .35s cubic-bezier(.2,1.4,.4,1) both">
       <span style="font-weight:900;font-size:clamp(1rem,3.4vw,1.25rem);color:#f2ebdd">{{ toastTxt }}</span>
     </div>
@@ -138,7 +138,7 @@
   </sc-if>
 
   <!-- ===== HERO — terminal bg ===== -->
-  <section ref="{{ heroRef }}" style="position:relative;min-height:100vh;overflow:hidden;background:#24100b">
+  <section ref="{{ heroRef }}" style="position:relative;min-height:100vh;overflow:hidden;background:#24100b;filter:grayscale(1) contrast(1.1) brightness(1.03);">
     <div style="position:absolute;inset:clamp(58px,8vh,110px) clamp(10px,1.5vw,28px) clamp(16px,2.2vw,28px);border-radius:clamp(22px,4vw,48px);overflow:hidden;background:#24100b;border:4px solid #141210;box-shadow:10px 10px 0 #141210"><canvas ref="{{ terminalRef }}" style="position:absolute;inset:0;width:100%;height:100%;-webkit-mask-image:radial-gradient(122% 116% at 50% 50%,#000 42%,rgba(0,0,0,.72) 72%,transparent 98%);mask-image:radial-gradient(122% 116% at 50% 50%,#000 42%,rgba(0,0,0,.72) 72%,transparent 98%);display:block"></canvas><span style="position:absolute;inset:0;background:rgba(20,18,16,.32);pointer-events:none"></span></div>
     <div style="position:relative;z-index:5;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(18px,3.2vw,30px);padding:clamp(92px,12vh,160px) clamp(22px,5vw,40px) clamp(48px,8vh,80px)">
       <div style="background:rgba(7,46,35,.74);backdrop-filter:blur(16px) saturate(1.35);-webkit-backdrop-filter:blur(16px) saturate(1.35);border:4px solid #141210;border-radius:32px;box-shadow:9px 9px 0 #ffc21a;padding:clamp(20px,3.6vw,38px) clamp(20px,4vw,44px);max-width:min(1000px,97%);animation:popIn .55s cubic-bezier(.2,1.35,.5,1) both">
@@ -151,7 +151,7 @@
   </section>
 
   <!-- ===== 01 — dither bg + principles ===== -->
-  <section ref="{{ s1Ref }}" style="position:relative;overflow:hidden;background:#24100b;padding:clamp(38px,6.2vh,90px) clamp(26px,5vw,46px)">
+  <section ref="{{ s1Ref }}" style="position:relative;overflow:hidden;background:#24100b;filter:grayscale(1) contrast(1.1) brightness(1.03);padding:clamp(38px,6.2vh,90px) clamp(26px,5vw,46px)">
     <div style="position:absolute;inset:clamp(16px,2.2vw,28px) clamp(10px,1.5vw,28px);border-radius:clamp(22px,4vw,48px);overflow:hidden;background:#24100b;border:4px solid #141210;box-shadow:10px 10px 0 #141210"><canvas ref="{{ ditherRef }}" style="position:absolute;inset:0;width:100%;height:100%;-webkit-mask-image:radial-gradient(122% 116% at 50% 50%,#000 42%,rgba(0,0,0,.72) 72%,transparent 98%);mask-image:radial-gradient(122% 116% at 50% 50%,#000 42%,rgba(0,0,0,.72) 72%,transparent 98%);display:block;image-rendering:pixelated"></canvas><span style="position:absolute;inset:0;background:rgba(20,18,16,.32);pointer-events:none"></span></div>
     <div style="position:relative;z-index:5;max-width:1000px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(18px,3vw,32px)">
       <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;background:#141210;border:4px solid #2563ff;border-radius:22px;box-shadow:8px 8px 0 #2563ff;padding:clamp(12px,2.4vw,18px) clamp(12px,2.4vw,18px) clamp(10px,2vw,14px)">
@@ -195,7 +195,7 @@
   </section>
 
   <!-- ===== 02 — hyperspeed bg ===== -->
-  <section ref="{{ s2Ref }}" style="position:relative;overflow:hidden;background:#24100b;padding:clamp(38px,6.2vh,90px) clamp(26px,5vw,46px)">
+  <section ref="{{ s2Ref }}" style="position:relative;overflow:hidden;background:#24100b;filter:grayscale(1) contrast(1.1) brightness(1.03);padding:clamp(38px,6.2vh,90px) clamp(26px,5vw,46px)">
     <div style="position:absolute;inset:clamp(16px,2.2vw,28px) clamp(10px,1.5vw,28px);border-radius:clamp(22px,4vw,48px);overflow:hidden;background:#24100b;border:4px solid #141210;box-shadow:10px 10px 0 #141210"><canvas ref="{{ hyperRef }}" style="position:absolute;inset:0;width:100%;height:100%;-webkit-mask-image:radial-gradient(122% 116% at 50% 50%,#000 42%,rgba(0,0,0,.72) 72%,transparent 98%);mask-image:radial-gradient(122% 116% at 50% 50%,#000 42%,rgba(0,0,0,.72) 72%,transparent 98%);display:block"></canvas><span style="position:absolute;inset:0;background:rgba(20,18,16,.32);pointer-events:none"></span></div>
     <div style="position:relative;z-index:5;max-width:1000px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(18px,3vw,32px)">
       <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;background:#141210;border:4px solid #ff5c22;border-radius:22px;box-shadow:8px 8px 0 #ff5c22;padding:clamp(12px,2.4vw,18px) clamp(12px,2.4vw,18px) clamp(10px,2vw,14px)">
@@ -246,7 +246,7 @@
   </section>
 
   <!-- ===== 03 — blinds bg + TOOL ===== -->
-  <section ref="{{ s3Ref }}" style="position:relative;overflow:hidden;background:#24100b;padding:clamp(38px,6.2vh,90px) clamp(26px,5vw,46px)">
+  <section ref="{{ s3Ref }}" style="position:relative;overflow:hidden;background:#24100b;filter:grayscale(1) contrast(1.1) brightness(1.03);padding:clamp(38px,6.2vh,90px) clamp(26px,5vw,46px)">
     <div style="position:absolute;inset:clamp(16px,2.2vw,28px) clamp(10px,1.5vw,28px);border-radius:clamp(22px,4vw,48px);overflow:hidden;background:#24100b;border:4px solid #141210;box-shadow:10px 10px 0 #141210"><canvas ref="{{ blindsRef }}" style="position:absolute;inset:0;width:100%;height:100%;-webkit-mask-image:radial-gradient(122% 116% at 50% 50%,#000 42%,rgba(0,0,0,.72) 72%,transparent 98%);mask-image:radial-gradient(122% 116% at 50% 50%,#000 42%,rgba(0,0,0,.72) 72%,transparent 98%);display:block"></canvas><span style="position:absolute;inset:0;background:rgba(20,18,16,.32);pointer-events:none"></span></div>
     <div style="position:relative;z-index:5;max-width:1000px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(18px,3vw,32px)">
       <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;background:#141210;border:4px solid #ffc21a;border-radius:22px;box-shadow:8px 8px 0 #ffc21a;padding:clamp(12px,2.4vw,18px) clamp(12px,2.4vw,18px) clamp(10px,2vw,14px)">
@@ -296,7 +296,7 @@
   </section>
 
   <!-- ===== 04 — snow bg ===== -->
-  <section ref="{{ s4Ref }}" style="position:relative;overflow:hidden;background:#24100b;padding:clamp(38px,6.2vh,90px) clamp(26px,5vw,46px)">
+  <section ref="{{ s4Ref }}" style="position:relative;overflow:hidden;background:#24100b;filter:grayscale(1) contrast(1.1) brightness(1.03);padding:clamp(38px,6.2vh,90px) clamp(26px,5vw,46px)">
     <div style="position:absolute;inset:clamp(16px,2.2vw,28px) clamp(10px,1.5vw,28px);border-radius:clamp(22px,4vw,48px);overflow:hidden;background:#24100b;border:4px solid #141210;box-shadow:10px 10px 0 #141210"><canvas ref="{{ snowRef }}" style="position:absolute;inset:0;width:100%;height:100%;-webkit-mask-image:radial-gradient(122% 116% at 50% 50%,#000 42%,rgba(0,0,0,.72) 72%,transparent 98%);mask-image:radial-gradient(122% 116% at 50% 50%,#000 42%,rgba(0,0,0,.72) 72%,transparent 98%);display:block"></canvas><span style="position:absolute;inset:0;background:rgba(20,18,16,.32);pointer-events:none"></span></div>
     <div style="position:relative;z-index:5;max-width:1000px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(18px,3vw,32px)">
       <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;background:#141210;border:4px solid #b57bf5;border-radius:22px;box-shadow:8px 8px 0 #b57bf5;padding:clamp(12px,2.4vw,18px) clamp(12px,2.4vw,18px) clamp(10px,2vw,14px)">
@@ -322,7 +322,7 @@
   </section>
 
   <!-- ===== 05 — liquid chrome bg ===== -->
-  <section ref="{{ s5Ref }}" style="position:relative;overflow:hidden;background:#24100b;padding:clamp(38px,6.2vh,90px) clamp(26px,5vw,46px)">
+  <section ref="{{ s5Ref }}" style="position:relative;overflow:hidden;background:#24100b;filter:grayscale(1) contrast(1.1) brightness(1.03);padding:clamp(38px,6.2vh,90px) clamp(26px,5vw,46px)">
     <div style="position:absolute;inset:clamp(16px,2.2vw,28px) clamp(10px,1.5vw,28px);border-radius:clamp(22px,4vw,48px);overflow:hidden;background:#24100b;border:4px solid #141210;box-shadow:10px 10px 0 #141210"><canvas ref="{{ chromeRef }}" style="position:absolute;inset:0;width:100%;height:100%;-webkit-mask-image:radial-gradient(122% 116% at 50% 50%,#000 42%,rgba(0,0,0,.72) 72%,transparent 98%);mask-image:radial-gradient(122% 116% at 50% 50%,#000 42%,rgba(0,0,0,.72) 72%,transparent 98%);display:block"></canvas><span style="position:absolute;inset:0;background:rgba(20,18,16,.32);pointer-events:none"></span></div>
     <div style="position:relative;z-index:5;max-width:1000px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(18px,3vw,32px)">
       <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;background:#141210;border:4px solid #e53e3e;border-radius:22px;box-shadow:8px 8px 0 #e53e3e;padding:clamp(12px,2.4vw,18px) clamp(12px,2.4vw,18px) clamp(10px,2vw,14px)">
@@ -348,7 +348,7 @@
   </section>
 
   <!-- ===== 06 — dither bg + FAQ ===== -->
-  <section ref="{{ s6Ref }}" style="position:relative;overflow:hidden;background:#24100b;padding:clamp(38px,6.2vh,90px) clamp(26px,5vw,46px)">
+  <section ref="{{ s6Ref }}" style="position:relative;overflow:hidden;background:#24100b;filter:grayscale(1) contrast(1.1) brightness(1.03);padding:clamp(38px,6.2vh,90px) clamp(26px,5vw,46px)">
     <div style="position:absolute;inset:clamp(16px,2.2vw,28px) clamp(10px,1.5vw,28px);border-radius:clamp(22px,4vw,48px);overflow:hidden;background:#24100b;border:4px solid #141210;box-shadow:10px 10px 0 #141210"><canvas ref="{{ dither2Ref }}" style="position:absolute;inset:0;width:100%;height:100%;-webkit-mask-image:radial-gradient(122% 116% at 50% 50%,#000 42%,rgba(0,0,0,.72) 72%,transparent 98%);mask-image:radial-gradient(122% 116% at 50% 50%,#000 42%,rgba(0,0,0,.72) 72%,transparent 98%);display:block;image-rendering:pixelated"></canvas><span style="position:absolute;inset:0;background:rgba(20,18,16,.32);pointer-events:none"></span></div>
     <div style="position:relative;z-index:5;max-width:1000px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(18px,3vw,32px)">
       <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;background:#141210;border:4px solid #12b981;border-radius:22px;box-shadow:8px 8px 0 #12b981;padding:clamp(12px,2.4vw,18px) clamp(12px,2.4vw,18px) clamp(10px,2vw,14px)">
@@ -376,7 +376,7 @@
   </section>
 
   <!-- ===== FOOTER ===== -->
-  <footer style="position:relative;overflow:hidden;background:#24100b;padding:clamp(40px,7vh,66px) clamp(26px,5vw,46px) clamp(44px,7vh,66px)">
+  <footer style="position:relative;overflow:hidden;background:#24100b;filter:grayscale(1) contrast(1.1) brightness(1.03);padding:clamp(40px,7vh,66px) clamp(26px,5vw,46px) clamp(44px,7vh,66px)">
     <div style="position:absolute;inset:clamp(16px,2.2vw,28px) clamp(10px,1.5vw,28px);border-radius:clamp(22px,4vw,48px);overflow:hidden;background:#24100b;border:4px solid #141210;box-shadow:10px 10px 0 #141210"><canvas ref="{{ footerRef }}" style="position:absolute;inset:0;width:100%;height:100%;-webkit-mask-image:radial-gradient(122% 116% at 50% 50%,#000 42%,rgba(0,0,0,.72) 72%,transparent 98%);mask-image:radial-gradient(122% 116% at 50% 50%,#000 42%,rgba(0,0,0,.72) 72%,transparent 98%);display:block;image-rendering:pixelated;opacity:.85"></canvas><span style="position:absolute;inset:0;background:rgba(20,18,16,.32);pointer-events:none"></span></div>
     <div style="position:relative;z-index:5;max-width:1000px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(16px,3vw,24px);text-align:right">
       <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:rgba(7,46,35,.72);backdrop-filter:blur(14px) saturate(1.3);-webkit-backdrop-filter:blur(14px) saturate(1.3);border:4px solid #141210;border-radius:22px;box-shadow:8px 8px 0 #ffc21a;padding:clamp(13px,2.4vw,18px)">
@@ -392,13 +392,13 @@
       <div onClick="{{ dedToggle }}" style="{{ dedStyle }}">
         <p style="margin:0;font-weight:700;font-size:clamp(.9rem,3.2vw,1.08rem);line-height:1.9;color:#141210;text-wrap:pretty">این سایت یک شوخی دوستانه است. <span style="display:inline-block;width:2.55em;height:1.5em;vertical-align:-.4em;margin:0 .1em;background-image:url(assets/logo-pms-inline.png);background-size:contain;background-repeat:no-repeat;background-position:center;image-rendering:pixelated"></span> برای خیلی‌ها واقعاً سخت است و مسخره کردن آن جزو برنامهٔ ما هم هست — سوژهٔ ما فقط آن دوستی است که گفت راجع به‌اش حرف نزنیم.</p>
         <div style="height:3px;background:rgba(20,18,16,.18);border-radius:2px;margin:16px 0"></div>
-        <p style="margin:0;font-weight:900;font-size:clamp(1.02rem,4.2vw,1.3rem);line-height:1.8;color:#141210;text-wrap:pretty">برای کسی که با کم‌رویی تمام گفت اسمشو سیو کنم — بهترین زن زندگیم.</p>
+        <p style="margin:0;font-weight:900;font-size:clamp(1.02rem,4.2vw,1.3rem);line-height:1.8;color:#141210;text-wrap:pretty">برای کسی که با کم‌رویی تمام گفت اسمشو سیو کنم — کسی که بهترین زن زندگیم نیست ولی بدترین زن زندگیم هم نیست.</p>
       </div>
 
           </div>
   </footer>
 
-  <div style="padding:clamp(14px,2.4vw,20px) clamp(7px,2.2vw,28px) clamp(26px,4vh,38px);display:flex;justify-content:center">
+  <div style="padding:clamp(14px,2.4vw,20px) clamp(7px,2.2vw,28px) clamp(26px,4vh,38px);display:flex;justify-content:center;filter:grayscale(1) contrast(1.1) brightness(1.03);">
     <div style="width:100%;display:flex;align-items:center;justify-content:center;gap:6px 14px;flex-wrap:wrap;direction:ltr;background:rgba(7,46,35,.8);backdrop-filter:blur(14px) saturate(1.3);-webkit-backdrop-filter:blur(14px) saturate(1.3);border:2px solid rgba(160,225,200,.24);border-radius:14px;padding:12px clamp(14px,3vw,20px)">
       <span style="flex:0 1 auto;text-align:center;font-family:'Space Mono',monospace;direction:ltr;white-space:nowrap;font-weight:700;font-size:clamp(12px,3vw,13px);color:#f2ebdd;opacity:.9">made by moli.cpu@gmail.com</span>
     </div>
@@ -1215,7 +1215,7 @@ void main(){
       pv1: pv(1), pv2: pv(2), pv3: pv(3),
       dedToggle: () => { if (this._dedT) return; this.setState({ dedGlass: true }); this._dedT = setTimeout(() => { this._dedT = null; this.setState({ dedGlass: false }); }, 3400); },
       loadPct: S.loadPct == null ? 0 : S.loadPct,
-      loaderStyle: { position: 'fixed', inset: 0, zIndex: 200, background: '#24100b', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 'clamp(16px,3vw,26px)', opacity: S.loaded ? 0 : 1, pointerEvents: S.loaded ? 'none' : 'auto', transition: 'opacity .9s ease', visibility: S.loadGone ? 'hidden' : 'visible' },
+      loaderStyle: { position: 'fixed', inset: 0, zIndex: 200, background: '#24100b', filter: 'grayscale(1) contrast(1.1) brightness(1.03)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 'clamp(16px,3vw,26px)', opacity: S.loaded ? 0 : 1, pointerEvents: S.loaded ? 'none' : 'auto', transition: 'opacity .9s ease', visibility: S.loadGone ? 'hidden' : 'visible' },
       loaderClipStyle: { position: 'absolute', left: 0, bottom: 0, width: '100%', height: (S.loadPct || 0) + '%', overflow: 'hidden', transition: 'height .5s cubic-bezier(.3,.8,.4,1)' },
       loaderBarStyle: { height: '100%', width: (S.loadPct || 0) + '%', background: '#e8603f', transition: 'width .5s ease' },
       noteToggle: () => { if (this._noteT) return; this.setState({ noteGlass: true }); this._noteT = setTimeout(() => { this._noteT = null; this.setState({ noteGlass: false }); }, 3400); },
@@ -1340,7 +1340,7 @@ void main(){
       })),
 
       faqs: [
-        { q: 'این سایت واقعاً برای چیست؟', a: 'برای بهترین زن زندگیم، که یک روز گفت دوست ندارد بحث سمت PMS برود. حالا یک وب‌سایت اختصاصی دارد. جهان عادلانه است.' },
+        { q: 'این سایت واقعاً برای چیست؟', a: 'برای کسی که بهترین زن زندگیم نیست ولی بدترین زن زندگیم هم نیست، که یک روز گفت دوست ندارد بحث سمت PMS برود. حالا یک وب‌سایت اختصاصی دارد. جهان عادلانه است.' },
         { q: 'آیا محتوای علمی دارد؟', a: 'تمام محتوای این سایت در آزمایشگاه شخصی نویسنده، روی یک نمونهٔ آماری واحد، بارها تکرار شده است. علمی‌تر از این سراغ ندارید.' },
         { q: 'اگر دوستمان این سایت را ببیند چه؟', a: 'هدف دقیقاً همین است. لطفاً واکنشش را ضبط کنید و برای بایگانی پژوهشکده بفرستید. خودش را هم بفرستید تا دربارهٔ PMS صحبت کنیم.' },
         { q: 'می‌شود موضوع را از PMS دور کرد؟', a: 'نه. PMS مهم‌ترین بخش زندگی است و اصلاً نباید از آن دور شد.' },
